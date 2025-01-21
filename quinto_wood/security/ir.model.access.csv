@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_quinto_wood_quinto_wood,quinto_wood.quinto_wood,model_quinto_wood_quinto_wood,base.group_user,1,1,1,1
+access_quinto_wood_cliente,quinto_wood.cliente,model_quinto_wood_cliente,base.group_user,1,1,1,1
+access_quinto_wood_empleado,quinto_wood.empleado,model_quinto_wood_empleado,base.group_user,1,1,1,1
+access_quinto_wood_persona,quinto_wood.persona,model_quinto_wood_persona,base.group_user,1,1,1,1
