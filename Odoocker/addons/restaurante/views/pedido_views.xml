@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="act_pedido">
+            <field name="name">Pedido</field>
+            <field name="res_model">restaurante.pedido</field>
+            <field name="view_mode">form</field>
+        </record>
+    </data>
+</odoo>
