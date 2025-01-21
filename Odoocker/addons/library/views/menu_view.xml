@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <data>
-        <menuitem id="library.main_library_menu" name="Biblioteca" />
-        <menuitem id="library.book_menu" name="Libros" parent="library.main_library_menu"/>
-        <menuitem id="library.book2_menu" name="Gestionar libros" parent="library.book_menu" action="act_book" />
-    </data>
-</odoo>
