@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <data>
-        <menuitem id="banco.main_banco_menu" name="Banco" />
-        <menuitem id="banco.cuenta_menu" name="Cuenta" parent="banco.main_banco_menu"/>
-        <menuitem id="banco.cuentas2_menu" name="Gestionar cuentas" parent="banco.cuenta_menu" action="act_cuenta" />
-    </data>
-</odoo>
