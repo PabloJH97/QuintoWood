@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields
+
+
+class Producto(models.Model):
+    _name = 'quinto_wood.producto'
+    _description = 'Quinto_wood Producto'
+
+    nombre = fields.Char(string="Nombre", required=True, help="Nombre del producto")
+    precio = fields.Float(string="Precio", required=True, help="Precio del producto")
+    fecha_fabricacion = fields.Date(string="Fecha de Fabricación", help="Fecha en la que se fabricó el producto")
+    pais = fields.Char(string="País de Origen", help="País donde se fabricó el producto")
+    foto_producto = fields.Binary(string="Foto del Producto", help="Imagen del producto")
+    proveedor_id = fields.Many2one('quinto_wood.proveedor', string="Proveedor", help="Proveedor del producto")
+    venta_ids = fields.One2many('quinto_wood.venta', 'producto_id', string="Ventas")
