@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Producto(models.Model):
@@ -14,3 +15,10 @@ class Producto(models.Model):
     foto_producto = fields.Binary(string="Foto del Producto", help="Imagen del producto")
     proveedor_id = fields.Many2one('quinto_wood.proveedor', string="Proveedor", help="Proveedor del producto")
     venta_ids = fields.One2many('quinto_wood.venta', 'producto_id', string="Ventas")
+
+#Validación de precio no negativo
+@api.constrains('precio')
+def _check_precio_no_negativo(self):
+    for record in self:
+       if record.precio < 0:
+           raise ValidationError("El precio del producto no puede ser negativo.")
