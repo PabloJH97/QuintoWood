@@ -14,7 +14,7 @@ class Producto(models.Model):
     pais = fields.Char(string="País de Origen", help="País donde se fabricó el producto")
     foto_producto = fields.Binary(string="Foto del Producto", help="Imagen del producto")
     proveedor_id = fields.Many2one('quinto_wood.proveedor', string="Proveedor", help="Proveedor del producto")
-    venta_ids = fields.One2many('quinto_wood.venta', 'producto_id', string="Ventas")
+    venta_ids = fields.Many2many('quinto_wood.venta', string="Ventas")
 
 #Validación de precio no negativo
 @api.constrains('precio')
