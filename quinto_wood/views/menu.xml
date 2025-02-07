@@ -18,3 +18,4 @@
     <menuitem name="Lista de Ventas" id="quinto_wood.menu_ventas_list" parent="quinto_wood.menu_ventas"
               action="quinto_wood_ventas_action"/>
 </odoo>
+
