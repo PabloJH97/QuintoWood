@@ -12,13 +12,8 @@
                         <field name="fecha_fabricacion" />
                         <field name="pais" />
                         <field name="foto_producto" widget="image"/>
-                        <field name="proveedor_id" widget="many2one" />
-                        <field name="venta_ids">
-                            <tree>
-                                <field name="producto_id"/>
-                                <field name="precio"/>
-                            </tree>
-                        </field>
+                        <field name="proveedor_id"/>
+                        <field name="idVenta" widget="many2many_tags" />
                     </group>
                 </sheet>
             </form>
@@ -61,4 +56,12 @@
             <p class="o_view_nocontent_smiling_face">Crea el primer producto</p>
         </field>
     </record>
+
+    <!-- Agregar al menú -->
+    <menuitem id="quinto_wood_menu_root" name="QuintoWood"/>
+
+    <menuitem id="quinto_wood_menu_productos"
+              name="Productos"
+              parent="quinto_wood_menu_root"
+              action="quinto_wood_producto_action"/>
 </odoo>
