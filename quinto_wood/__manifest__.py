@@ -21,6 +21,9 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
+    
+    'installable': True,
+    'application': True,
 
     # always loaded
     'data': [
@@ -29,8 +32,10 @@
         'views/templates.xml',
         'views/proveedor_view.xml',
         'views/producto_view.xml',
-        #Agregar antes del menu el resto de vistas
-        'view/menu.xml',
+        'views/envio_view.xml'
+        'views/venta_view.xml'
+        'views/menu.xml'
+
     ],
     # only loaded in demonstration mode
     'demo': [

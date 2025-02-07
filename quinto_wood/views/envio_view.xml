@@ -1,0 +1,63 @@
+<odoo>
+    <!-- Vista Formulario -->
+    <record id="quinto_wood_envio_form_view" model="ir.ui.view">
+        <field name="name">quinto_wood.envio.form</field>
+        <field name="model">quinto_wood.envio</field>
+        <field name="arch" type="xml">
+            <form string="Envío">
+                <sheet>
+                    <group>
+                        <field name="direccion" />
+                        <field name="cpostal" />
+                        <field name="fechaEnvio" />
+                        <field name="fechaLlegada" />
+                        <field name="estado"/>
+                        <field name="venta_id" widget="many2one" />
+                            <tree>
+                                <field name="envio_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Lista (Tree) -->
+    <record id="quinto_wood_envio_tree_view" model="ir.ui.view">
+        <field name="name">quinto_wood.envio.tree</field>
+        <field name="model">quinto_wood.envio</field>
+        <field name="arch" type="xml">
+            <tree string="Lista de envíos">
+                <field name="direccion" />
+                <field name="cpostal" />
+                <field name="fechaEnvio" />
+                <field name="fechaLlegada" />
+                <field name="estado" />
+                <field name="venta_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista calendario (Calendar) -->
+    <record id="quinto_wood_envio_calendar_view" model="ir.ui.view">
+        <field name="name">quinto_wood.envio.calendar</field>
+        <field name="model">quinto_wood.envio</field>
+        <field name="arch" type="xml">
+        <calendar string="Envío" color="estado" date_start="fechaEnvio" date_stop="fechaLlegada" mode="month">
+            <field name="direccion" />
+            <field name="cpostal" />
+        </calendar>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista -->
+    <record id="quinto_wood_envio_action" model="ir.actions.act_window">
+        <field name="name">Envíos</field>
+        <field name="res_model">quinto_wood.envio</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea el primer envío</p>
+        </field>
+    </record>
+</odoo>

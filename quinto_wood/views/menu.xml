@@ -5,10 +5,17 @@
     <!-- Categorías de menú -->
     <menuitem name="Gestión de Productos" id="quinto_wood.menu_productos" parent="quinto_wood.menu_root"/>
     <menuitem name="Gestión de Proveedores" id="quinto_wood.menu_proveedores" parent="quinto_wood.menu_root"/>
+    <menuitem name="Gestión de Envíos" id="quinto_wood.menu_envios" parent="quinto_wood.menu_root"/>
+    <menuitem name="Gestión de Ventas" id="quinto_wood.menu_ventas" parent="quinto_wood.menu_root"/>
 
     <!-- Acciones -->
     <menuitem name="Lista de Productos" id="quinto_wood.menu_productos_list" parent="quinto_wood.menu_productos"
               action="quinto_wood_producto_action"/>
     <menuitem name="Lista de Proveedores" id="quinto_wood.menu_proveedores_list" parent="quinto_wood.menu_proveedores"
               action="quinto_wood_proveedor_action"/>
+    <menuitem name="Lista de Envíos" id="quinto_wood.menu_envios_list" parent="quinto_wood.menu_envios"
+              action="quinto_wood_envios_action"/>
+    <menuitem name="Lista de Ventas" id="quinto_wood.menu_ventas_list" parent="quinto_wood.menu_ventas"
+              action="quinto_wood_ventas_action"/>
 </odoo>
+
