@@ -21,12 +21,18 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base'],
+    
+    'installable': True,
+    'application': True,
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/envio_view.xml'
+        'views/venta_view.xml'
+        'views/menu.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
