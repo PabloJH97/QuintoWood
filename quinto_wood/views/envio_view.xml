@@ -12,9 +12,9 @@
                         <field name="fechaEnvio" />
                         <field name="fechaLlegada" />
                         <field name="estado"/>
-                        <field name="venta_id"/>
+                        <field name="venta_id">
                             <tree>
-                                <field name="envio_id"/>
+                                <field name="id"/>
                             </tree>    
                         </field>
                     </group>
@@ -52,7 +52,7 @@
     </record>
 
     <!-- Acción para abrir la vista -->
-    <record id="quinto_wood_envio_action" model="ir.actions.act_window">
+    <record id="quinto_wood_envios_action" model="ir.actions.act_window">
         <field name="name">Envíos</field>
         <field name="res_model">quinto_wood.envio</field>
         <field name="view_mode">tree,form,calendar</field>
