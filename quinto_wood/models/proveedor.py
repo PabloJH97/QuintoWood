@@ -12,13 +12,14 @@ class Proveedor(models.Model):
     direccion = fields.Char(String = "Direccion")
     logo = fields.Binary(String = "Logo")
     telefono = fields.Integer(String = "Telefono")
-    productos_id = fields.One2many('quinto_wood.producto', 'proveedor_id', string="Productos")
+    producto_id = fields.One2many('quinto_wood.producto', 'proveedor_id', string="Productos")
 
-#Validación de CIF único
-@api.constrains('cif')
-def _check_cif_unico(self):
-    for record in self:
-        existing_proveedor = self.search([('cif', '=', record.cif), ('id', '!=', record.id)])
-        if existing_proveedor:
-            raise ValidationError("El CIF debe ser único. Ya existe un proveedor con este CIF.")
-     
+
+    #Validación de CIF único
+    @api.constrains('cif')
+    def _check_cif_unico(self):
+        for record in self:
+            existing_proveedor = self.search([('cif', '=', record.cif), ('id', '!=', record.id)])
+            if existing_proveedor:
+                raise ValidationError("El CIF debe ser único. Ya existe un proveedor con este CIF.")
+        

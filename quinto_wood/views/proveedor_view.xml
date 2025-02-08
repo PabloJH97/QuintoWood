@@ -12,19 +12,10 @@
             <field name="direccion" string="Dirección"/>
             <field name="telefono" string="Teléfono"/>
             <field name="logo" widget="image" string="Logo"/>
-            <field name="productos_ids">
+            <field name="producto_id">
               <tree editable="bottom">
                 <field name="nombre" string="Nombre"/>
-                <field name="precio" string="Precio"/>
-                <field name="fecha_fabricacion" string="Fecha de Fabricación"/>
               </tree>
-              <form>
-                <group>
-                  <field name="nombre"/>
-                  <field name="precio"/>
-                  <field name="fecha_fabricacion"/>
-                </group>
-              </form>
             </field>
           </group>
         </sheet>
@@ -52,7 +43,6 @@
     <field name="arch" type="xml">
       <search string="Buscar Proveedor">
         <field name="nombre" string="Nombre del Proveedor"/>
-        <filter string="Tiene productos" domain="[('productos_ids', '!=', False)]"/>
       </search>
     </field>
   </record>
