@@ -18,10 +18,10 @@ class Venta(models.Model):
     cliente_id = fields.Many2one('quinto_wood.cliente', string="Clientes")
     empleado_id = fields.Many2one('quinto_wood.empleado', string="Empleados")
     
-     @api.model
-     def create(self, vals):
-          record = super(Venta, self).create(vals)
-          record.idVenta = f"ID-{record.id}"  # Asignar un valor basado en el id
+    @api.model
+    def create(self, vals):
+        record = super(Venta, self).create(vals)
+        record.idVenta = f"ID-{record.id}"  # Asignar un valor basado en el id
 
-          return record
+        return record
 

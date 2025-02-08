@@ -12,10 +12,10 @@
                         <field name="fechaEnvio" />
                         <field name="fechaLlegada" />
                         <field name="estado"/>
-                        <field name="venta_id" widget="many2one" />
+                        <field name="venta_id"/>
                             <tree>
                                 <field name="envio_id"/>
-                            </tree>
+                            </tree>    
                         </field>
                     </group>
                 </sheet>

@@ -30,9 +30,12 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/envio_view.xml'
-        'views/venta_view.xml'
-        'views/menu.xml'
+        'views/proveedor_view.xml',
+        'views/producto_view.xml',
+        'views/envio_view.xml',
+        'views/venta_view.xml',
+        'views/menu.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
