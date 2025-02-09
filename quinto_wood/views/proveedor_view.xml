@@ -43,6 +43,9 @@
     <field name="arch" type="xml">
       <search string="Buscar Proveedor">
         <field name="nombre" string="Nombre del Proveedor"/>
+        <field name="cif" string="CIF del Proveedor"/>
+        <field name="telefono" string="Teléfono del Proveedor"/>
+        <field name="producto_id" string="Producto del Proveedor"/>
       </search>
     </field>
   </record>
@@ -51,7 +54,7 @@
   <record id="quinto_wood_proveedor_action" model="ir.actions.act_window">
     <field name="name">Proveedores</field>
     <field name="res_model">quinto_wood.proveedor</field>
-    <field name="view_mode">tree,form</field>
+    <field name="view_mode">tree,form,search</field>
     <field name="search_view_id" ref="quinto_wood_proveedor_search_view"/>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">Crea el primer proveedor</p>
