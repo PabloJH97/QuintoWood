@@ -24,12 +24,8 @@ class Envio(models.Model):
     venta_id = fields.Many2one('quinto_wood.venta', string="Ventas")
 
     @api.constrains('cpostal')
-     def _check_cpostal(self):
-          if self.cpostal > 5:
-               raise models.ValidationError('El código postal debe ser de 5 dígitos.')
-=======
     def _check_cpostal(self):
         for record in self:
             if len(str(record.cpostal)) != 5 or not str(record.cpostal).isdigit():
                 raise models.ValidationError("El código postal tiene que tener 5 dígitos.")
->>>>>>> Stashed changes
+
