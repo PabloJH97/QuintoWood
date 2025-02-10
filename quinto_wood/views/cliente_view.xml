@@ -22,7 +22,6 @@
                 <search>
                     <field name="name"/>
                     <field name="apellidos"/>
-                    <filter string="Con Ventas" domain="[('venta_ids', '!=', False)]"/>
                 </search>
             </field>
         </record>
