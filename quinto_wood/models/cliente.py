@@ -19,7 +19,7 @@ class Cliente(models.Model):
     @api.constrains('cpostal')
     def _check_cpostal(self):
         for record in self:
-            if len(record.cpostal) != 5 or not (record.cpostal).isdigit():
+            if len(str(record.cpostal)) != 5 or not str(record.cpostal).isdigit():
                 raise models.ValidationError("El código postal tiene que tener 5 dígitos.")
       
     @api.model
@@ -32,7 +32,7 @@ class Cliente(models.Model):
         for record in self:
             if record.venta_ids:
              raise models.ValidationError("No se puede eliminar un cliente que tiene alguna venta.")
-        return super(Cliente, self).unlink()
+        return super(cliente, self).unlink()
     
     def actualizar_direccion(self):
         clientes = self.env['quinto_wood.cliente'].search([('cpostal', '=', '41089')])
