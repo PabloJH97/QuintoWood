@@ -14,7 +14,7 @@ class Envio(models.Model):
     direccion = fields.Text(string="Dirección", required=True, help="Dirección de envío")
     cpostal = fields.Integer(string="Código Postal", required=True, help="Código postal del envío")
     fechaEnvio = fields.Datetime(string="Fecha de envío", required=True, help="Fecha en la que se envió el envío")
-    fechaLlegada = fields.Datetime(string="Fecha de llegada", help="Fecha en la que llegará el envío")
+    fechaLlegada = fields.Datetime(string="Fecha de llegada", required=True, help="Fecha en la que llegará el envío")
     estado = fields.Selection([('preparacion','En preparación'),
                                      ('enviado','Enviado'),
                                      ('entregado','Entregado')],
@@ -28,4 +28,10 @@ class Envio(models.Model):
         for record in self:
             if len(str(record.cpostal)) != 5 or not str(record.cpostal).isdigit():
                 raise models.ValidationError("El código postal tiene que tener 5 dígitos.")
+
+    @api.constrains('estado')
+    def _check_envios(self):
+        for record in self:
+            if not record.estado:
+                raise models.ValidationError("El estado tiene que estar seleccionado.")
 
