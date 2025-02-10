@@ -16,15 +16,15 @@
       <!--Productos-->
         <record id="producto1" model="quinto_wood.producto">
               <field name="producto_id">ID-1</field>
-              <field name="nombre">Pan</field>
+              <field name="nombre">Madera</field>
               <field name="precio">0.20</field>
               <field name="fecha_fabricacion">2025-01-01</field>
               <field name="pais">España</field>
         </record>
         <record id="producto2" model="quinto_wood.producto">
               <field name="producto_id">ID-2</field>
-              <field name="nombre">Aceite</field>
-              <field name="precio">50</field>
+              <field name="nombre">Mesa</field>
+              <field name="precio">20</field>
               <field name="fecha_fabricacion">2025-01-02</field>
               <field name="pais">España</field>
         </record>
