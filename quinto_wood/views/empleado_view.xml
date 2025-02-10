@@ -3,8 +3,39 @@
     <data>
         <record model="ir.actions.act_window" id="act_empleado">
             <field name="name">Empleado</field>
-            <field name="res_model">quintowood.empleado</field>
+            <field name="res_model">quinto_wood.empleado</field>
             <field name="view_mode">form,tree</field>
         </record>
+
+        <record id="view_empleado_graph" model="ir.ui.view">
+            <field name="name">quinto_wood.empleado.graph</field>
+            <field name="model">quinto_wood.empleado</field>
+            <field name="arch" type="xml">
+                <graph string="Ventas por Empleado" type="bar">
+                    <field name="venta_ids" type="many2one"/>
+                    <field name="salario"/>
+                </graph>
+            </field>
+        </record>
+
+
+        <record id="view_empleado_search" model="ir.ui.view">
+            <field name="name">quinto_wood.empleado.search</field>
+            <field name="model">quinto_wood.empleado</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="puesto"/>
+                    <filter string="Con Ventas" domain="[('venta_ids', '!=', False)]"/>
+                </search>
+            </field>
+        </record>
+
+
+
+
+
+
+
     </data>
 </odoo>

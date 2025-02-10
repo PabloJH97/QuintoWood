@@ -1,0 +1,66 @@
+<odoo>
+    <!-- Vista Formulario -->
+    <record id="quinto_wood_venta_form_view" model="ir.ui.view">
+        <field name="name">quinto_wood.venta.form</field>
+        <field name="model">quinto_wood.venta</field>
+        <field name="arch" type="xml">
+            <form string="Venta">
+                <sheet>
+                    <group>
+                        <field name="idVenta" />
+                        <field name="fecha" />
+                        <field name="enviogratis" />
+                        <field name="precioTotal" />
+                        <field name="producto_id"/>
+                        <field name="cliente_id" widget="many2one"/>
+                        <field name="empleado_id" widget="many2one">
+                            <tree>
+                                <field name="id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Lista (Tree) -->
+    <record id="quinto_wood_venta_tree_view" model="ir.ui.view">
+        <field name="name">quinto_wood.venta.tree</field>
+        <field name="model">quinto_wood.venta</field>
+        <field name="arch" type="xml">
+            <tree string="Lista de ventas">
+                <field name="idVenta" />
+                <field name="fecha" />
+                <field name="enviogratis" />
+                <field name="precioTotal" />
+                <field name="envio_id" />
+                <field name="producto_id"/>
+                <field name="cliente_id"/>
+                <field name="empleado_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Gráfica (Graph) -->
+    <record id="quinto_wood_venta_graph_view" model="ir.ui.view">
+        <field name="name">quinto_wood.venta.graph</field>
+        <field name="model">quinto_wood.venta</field>
+        <field name="arch" type="xml">
+            <graph string="Estadísticas de ventas" type="bar">
+                <field name="idVenta" type="row"/>
+                <field name="producto_id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista -->
+    <record id="quinto_wood_ventas_action" model="ir.actions.act_window">
+        <field name="name">Ventas</field>
+        <field name="res_model">quinto_wood.venta</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crea la priemra venta</p>
+        </field>
+    </record>
+</odoo>

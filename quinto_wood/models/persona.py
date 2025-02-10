@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 
 class persona(models.Model):
-    _name = 'quintowood.persona' # modulo.modelo
+    _name = 'quinto_wood.persona' # modulo.modelo
     _description = 'Una persona'
 
     name = fields.Char('Nombre', size=128, required = True)
@@ -13,7 +13,7 @@ class persona(models.Model):
     email = fields.Char("Email", size=70)
     movil = fields.Integer("Teléfono", size=9, required = True)
     
-    @api.constrains('name', 'apellidos', 'dni')
+    @api.constrains('dni')
     def _check_dni(self):
         for record in self:
             if len(record.dni) != 9 or not record.dni.isdigit():
@@ -24,12 +24,13 @@ class persona(models.Model):
     ]
     
     
+    @api.constrains('name','apellidos')
     def _check_name(self):
         for record in self:
             if len(record.name) < 1 or len(record.apellidos) < 1:
                 raise models.ValidationError("El nombre y los apellidos deben tener al menos 1 caracter")
             
-      
+    @api.constraints('email')  
     def _check_email(self):
         for record in self:
             if record.email and not '@' in record.email: #xra q valide el @ sólo si está lleno el campo
