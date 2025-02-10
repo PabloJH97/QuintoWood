@@ -49,7 +49,7 @@
         <field name="arch" type="xml">
             <graph string="Estadísticas de ventas" type="bar">
                 <field name="idVenta" type="row"/>
-                <field name="precioTotal" type="measure"/>
+                <field name="producto_id" type="measure"/>
             </graph>
         </field>
     </record>

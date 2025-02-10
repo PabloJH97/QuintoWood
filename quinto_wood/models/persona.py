@@ -12,7 +12,7 @@ class Persona(models.Model):
     apellidos = fields.Char('Apellidos', size=128, required = True)
     dni = fields.Char("DNI",size=9, required= True)
     email = fields.Char("Email", size=70)
-    movil = fields.Integer("Teléfono", size=9, required = True)
+    movil = fields.Integer("Teléfono", required = True)
 
     _sql_constraints = [
         ('dni_uniq', 'UNIQUE(dni)', 'El DNI debe ser único'),
@@ -22,8 +22,8 @@ class Persona(models.Model):
     @api.constrains('dni')
     def _check_dni(self):
         for record in self:
-            if len(record.dni) != 9 or not record.dni.isdigit():
-                raise models.ValidationError("El DNI debe tener 9 dígitos")
+             if len(record.dni) != 9 or not record.dni[:8].isdigit() or not record.dni[-1].isalpha() or not record.dni:
+                raise models.ValidationError("El DNI tiene qu tener 8 números y una letra.")
             
    
     

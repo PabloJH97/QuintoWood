@@ -1,60 +1,30 @@
 <odoo>
     <data>
-      <!--Proveedores-->
-        <record id="proveedor1" model="quinto_wood.proveedor">
-            <field name="nombre">Paco Mer</field>
-            <field name="cif">85736456J</field>
-            <field name="direccion">Calle Manolo VI</field>
-            <field name="telefono">691726456</field>
-        </record>
-        <record id="proveedor22" model="quinto_wood.proveedor">
-              <field name="nombre">Lucía Soria</field>
-              <field name="cif">85610274I</field>
-              <field name="direccion">Avenida de las avellanas</field>
-              <field name="telefono">676823015</field>
-        </record>
-      <!--Productos-->
-        <record id="producto1" model="quinto_wood.producto">
-              <field name="producto_id">ID-1</field>
-              <field name="nombre">Madera</field>
-              <field name="precio">0.20</field>
-              <field name="fecha_fabricacion">2025-01-01</field>
-              <field name="pais">España</field>
-        </record>
-        <record id="producto2" model="quinto_wood.producto">
-              <field name="producto_id">ID-2</field>
-              <field name="nombre">Mesa</field>
-              <field name="precio">20</field>
-              <field name="fecha_fabricacion">2025-01-02</field>
-              <field name="pais">España</field>
-        </record>
-      <!--Ventas-->
-        <record id="venta1" model="quinto_wood.venta">
-            <field name="idVenta">1</field>
-            <field name="fecha">2025-01-01</field>
-            <field name="enviogratis">True</field>
-            <field name="precioTotal">0.00</field>
-        </record>
-        <record id="venta2" model="quinto_wood.venta">
-              <field name="idVenta">2</field>
-              <field name="fecha">2025-01-02</field>
-              <field name="enviogratis">False</field>
-              <field name="precioTotal">50</field>
-        </record>
-      <!--Envíos-->
-        <record id="envio1" model="quinto_wood.envio">
-              <field name="direccion">Calle de las almendras</field>
-              <field name="cpostal">41088</field>
-              <field name="fechaEnvio">2025-01-01</field>
-              <field name="fechaLlegada">2025-01-01</field>
-              <field name="estado">enviado</field>
-        </record>
-        <record id="envio2" model="quinto_wood.envio">
-              <field name="direccion">Calle Bolsena</field>
-              <field name="cpostal">41089</field>
-              <field name="fechaEnvio">2025-01-02</field>
-              <field name="fechaLlegada">2025-01-20</field>
-              <field name="estado">preparacion</field>
-        </record>
+<!--
+          <record id="object0" model="quinto_wood.quinto_wood">
+            <field name="name">Object 0</field>
+            <field name="value">0</field>
+          </record>
+
+          <record id="object1" model="quinto_wood.quinto_wood">
+            <field name="name">Object 1</field>
+            <field name="value">10</field>
+          </record>
+
+          <record id="object2" model="quinto_wood.quinto_wood">
+            <field name="name">Object 2</field>
+            <field name="value">20</field>
+          </record>
+
+          <record id="object3" model="quinto_wood.quinto_wood">
+            <field name="name">Object 3</field>
+            <field name="value">30</field>
+          </record>
+
+          <record id="object4" model="quinto_wood.quinto_wood">
+            <field name="name">Object 4</field>
+            <field name="value">40</field>
+          </record>
+-->
     </data>
 </odoo>
