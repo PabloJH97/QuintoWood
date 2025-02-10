@@ -1,8 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        
+        <!-- Formulario -->
+         <record id="view_empleado_form" model="ir.ui.view">
+            <field name="name">quinto_wood.empleado.form</field>
+            <field name="model">quinto_wood.empleado</field>
+            <field name="arch" type="xml">
+                <form string="Empleado">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="puesto"/>
+                            <field name="salario"/>
+                            <field name="venta_ids"/>
+                            <field name="fotodni"/>
+                        </group>
 
+                        <!-- Botones -->
+                        <footer>
+                            <button name="actualizar_salarios_10" type="object" string="Aplicar 10%" class="oe_highlight"/>
+                            <button name="actualizar_salarios_20" type="object" string="Aplicar 20%" class="oe_highlight"/>
+                            <button name="aplicar_bonus" type="object" string="Aplicar Bonus" class="oe_highlight"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree  -->
+        <record id="view_empleado_tree" model="ir.ui.view">
+            <field name="name">quinto_wood.empleado.tree</field>
+            <field name="model">quinto_wood.empleado</field>
+            <field name="arch" type="xml">
+                <tree string="Empleados">
+                    <field name="name"/>
+                    <field name="puesto"/>
+                    <field name="salario"/>
+                    <field name="venta_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Graph -->
         <record id="view_empleado_graph" model="ir.ui.view">
             <field name="name">quinto_wood.empleado.graph</field>
             <field name="model">quinto_wood.empleado</field>
@@ -14,7 +53,7 @@
             </field>
         </record>
 
-
+        <!-- Search -->
         <record id="view_empleado_search" model="ir.ui.view">
             <field name="name">quinto_wood.empleado.search</field>
             <field name="model">quinto_wood.empleado</field>
@@ -26,10 +65,12 @@
             </field>
         </record>
 
+        <!-- El action -->
         <record model="ir.actions.act_window" id="act_empleado">
             <field name="name">Empleado</field>
             <field name="res_model">quinto_wood.empleado</field>
-            <field name="view_mode">form,tree</field>
+            <field name="view_mode">form,tree,graph</field>
+            <field name="search_view_id" ref="view_empleado_search"/>
         </record>
 
     </data>
