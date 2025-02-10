@@ -2,8 +2,6 @@
 <odoo>
     <data>
 
-
-
         <record id="view_cliente_graph" model="ir.ui.view">
             <field name="name">quinto_wood.cliente.graph</field>
             <field name="model">quinto_wood.cliente</field>
@@ -13,7 +11,6 @@
                 </graph>
             </field>
         </record>
-
 
         <record id="view_cliente_search" model="ir.ui.view">
             <field name="name">quinto_wood.cliente.search</field>
@@ -26,11 +23,52 @@
             </field>
         </record>
 
+        <record id="view_cliente_tree" model="ir.ui.view">
+            <field name="name">quinto_wood.cliente.tree</field>
+            <field name="model">quinto_wood.cliente</field>
+            <field name="arch" type="xml">
+                <tree string="Clientes">
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                    <field name="dni"/>
+                    <field name="direccion"/>
+                    <field name="cpostal"/>
+                    <field name="email"/>
+                    <field name="movil"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_cliente_form" model="ir.ui.view">
+            <field name="name">quinto_wood.cliente.form</field>
+            <field name="model">quinto_wood.cliente</field>
+            <field name="arch" type="xml">
+                <form string="Cliente">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="apellidos"/>
+                            <field name="dni"/>
+                            <field name="direccion"/>
+                            <field name="cpostal"/>
+                            <field name="email"/>
+                            <field name="movil"/>
+                        </group>
+
+                        <footer>
+                            <button name="actualizar_direccion" type="object" string="Actualizar Dirección" class="oe_highlight"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="act_cliente">
             <field name="name">Cliente</field>
             <field name="res_model">quinto_wood.cliente</field>
             <field name="view_mode">form,tree,graph</field>
-             <field name="search_view_id" ref="view_cliente_search"/>
+            <field name="search_view_id" ref="view_cliente_search"/>
         </record>
+
     </data>
 </odoo>

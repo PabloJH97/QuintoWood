@@ -15,40 +15,37 @@ class Empleado(models.Model):
 
     venta_ids = fields.One2many('quinto_wood.venta', 'empleado_id', string='Ventas')
     
-    
     @api.constrains('salario')
     def _check_salario(self):
         for record in self:
             if record.salario <= 0:
-                raise models.ValidationError('El salario no puede ser nagativo ni 0.')
+                raise models.ValidationError('El salario no puede ser negativo ni 0.')
 
-_sql_constraints = [
-    ('puesto_not_null', 'CHECK(puesto IS NOT NULL)', 'El campo puesto no puede ser nulo.')
-]
+    _sql_constraints = [
+        ('puesto_not_null', 'CHECK(puesto IS NOT NULL)', 'El campo puesto no puede ser nulo.')
+    ]
 
-@api.model
-def write(self, vals):
+    @api.model
+    def write(self, vals):
         if 'salario' in vals:
             for record in self:
                 nuevo_salario = vals.get('salario', record.salario)
                 if nuevo_salario < 1000:
                     raise models.ValidationError("El salario no puede ser menor a 1000 debido al SMI")
-        return super(empleado, self).write(vals)
+        return super(Empleado, self).write(vals)
     
-    
-@api.model
-def actualizar_salarios_10(self):
-    empleados = self.search([('salario', '<', 1000)])
-    for empleado in empleados:
-        empleado.salario += 100
-        
-@api.model
-def actualizar_salarios_20(self):
-    empleados = self.search([('salario', '<', 1000)])
-    for empleado in empleados:
-        empleado.salario += 200
-        
-def aplicar_bonus(self):
-    empleados = self.env['quinto_wood.empleado'].search([('puesto', '=', "Jefe de zona")])
-    for empleado in empleados:
-        empleado.salario += 500  
+    # Métodos llamados desde los botones
+    def actualizar_salarios_10(self):
+        empleados = self.search([('salario', '<', 1000)])
+        for empleado in empleados:
+            empleado.salario += 100
+
+    def actualizar_salarios_20(self):
+        empleados = self.search([('salario', '<', 1000)])
+        for empleado in empleados:
+            empleado.salario += 200
+
+    def aplicar_bonus(self):
+        empleados = self.env['quinto_wood.empleado'].search([('puesto', '=', "Jefe de zona")])
+        for empleado in empleados:
+            empleado.salario += 500
