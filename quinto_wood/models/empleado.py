@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Empleado(models.Model):
@@ -27,12 +28,10 @@ class Empleado(models.Model):
 
     @api.model
     def write(self, vals):
-        if 'salario' in vals:
-            for record in self:
-                nuevo_salario = vals.get('salario', record.salario)
-                if nuevo_salario < 1000:
-                    raise models.ValidationError("El salario no puede ser menor a 1000 debido al SMI")
+        if 'salario' in vals and vals['salario'] < 1000:
+            raise ValidationError("El salario no puede ser menor a 1000 debido al SMI")
         return super(Empleado, self).write(vals)
+
     
     # Métodos llamados desde los botones
     def actualizar_salarios_10(self):
