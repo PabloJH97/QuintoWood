@@ -28,15 +28,17 @@ class Venta(models.Model):
     
     @api.depends('producto_id', 'enviogratis')
     def _compute_precio_total(self):
-        if self.enviogratis:
-            self.precioTotal=0.0
-        else:
-            total = 0.0
-            for producto in self.producto_id:
-                precio=producto.precio
-                total+=precio
+        for venta in self:
 
-            self.precioTotal=total
+            if venta.enviogratis:
+                venta.precioTotal=0.0
+            else:
+                total = 0.0
+                for producto in venta.producto_id:
+                    precio=producto.precio
+                    total+=precio
+
+                venta.precioTotal=total
 
 
 
