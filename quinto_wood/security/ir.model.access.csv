@@ -2,7 +2,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_proveedor_quinto_wood,quinto_wood.proveedor,model_quinto_wood_proveedor,base.group_user,1,1,1,1
 access_producto_quinto_wood,quinto_wood.producto,model_quinto_wood_producto,base.group_user,1,1,1,1
 access_envio_quinto_wood,quinto_wood.envio,model_quinto_wood_envio,base.group_user,1,1,1,1
-access_cliente_quinto_wood,quinto_wood.cliente,model_quinto_wood_cliente,base.group_user,1,1,1,1
-access_empleado_quint_owood,quinto_wood.empleado,model_quinto_wood_empleado,base.group_user,1,1,1,1
 access_persona_quinto_wood,quinto_wood.persona,model_quinto_wood_persona,base.group_user,1,1,1,1
+access_cliente_quinto_wood,quinto_wood.cliente,model_quinto_wood_cliente,base.group_user,1,1,1,1
+access_empleado_quinto_wood,quinto_wood.empleado,model_quinto_wood_empleado,base.group_user,1,1,1,1
 access_venta_quinto_wood,quinto_wood.venta,model_quinto_wood_venta,base.group_user,1,1,1,1

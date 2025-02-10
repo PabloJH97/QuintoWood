@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record model="ir.actions.act_window" id="act_cliente">
-            <field name="name">Cliente</field>
-            <field name="res_model">quinto_wood.cliente</field>
-            <field name="view_mode">form,tree</field>
-        </record>
 
-
-        <record id="view_cliente_graph" model="ir.ui.view">
-            <field name="name">quinto_wood.cliente.graph</field>
-            <field name="model">quinto_wood.cliente</field>
-            <field name="arch" type="xml">
-                <graph string="Ventas por Cliente">
-                    <field name="venta_ids" type="many2one"/>
-                </graph>
-            </field>
-        </record>
 
 
         <record id="view_cliente_graph" model="ir.ui.view">
@@ -37,10 +22,15 @@
                 <search>
                     <field name="name"/>
                     <field name="apellidos"/>
-                    <filter string="Con Ventas" domain="[('venta_ids', '!=', False)]"/>
                 </search>
             </field>
         </record>
 
+        <record model="ir.actions.act_window" id="act_cliente">
+            <field name="name">Cliente</field>
+            <field name="res_model">quinto_wood.cliente</field>
+            <field name="view_mode">form,tree,graph</field>
+             <field name="search_view_id" ref="view_cliente_search"/>
+        </record>
     </data>
 </odoo>
