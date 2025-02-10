@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
+
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError
 
 
-class cliente(models.Model):
+class Cliente(models.Model):
     _name = 'quinto_wood.cliente' # modulo.modelo
     _inherit= 'quinto_wood.persona'
     _description = 'Un cliente'
@@ -19,14 +22,11 @@ class cliente(models.Model):
             if len(str(record.cpostal)) != 5 or not str(record.cpostal).isdigit():
                 raise models.ValidationError("El código postal tiene que tener 5 dígitos.")
       
-      
-      
-      
     @api.model
     def clientes_con_ventas(self):
         return self.env['quinto_wood.cliente'].search([('venta_ids', '!=', False)])
     
-          
+  
     @api.constrains('cpostal')
     def unlink(self):
         for record in self:

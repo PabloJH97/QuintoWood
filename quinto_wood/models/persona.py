@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError
 
-
-class persona(models.Model):
+class Persona(models.Model):
     _name = 'quinto_wood.persona' # modulo.modelo
     _description = 'Una persona'
 
@@ -12,6 +13,11 @@ class persona(models.Model):
     dni = fields.Char("DNI",size=9, required= True)
     email = fields.Char("Email", size=70)
     movil = fields.Integer("Teléfono", size=9, required = True)
+
+    _sql_constraints = [
+        ('dni_uniq', 'UNIQUE(dni)', 'El DNI debe ser único'),
+    ]
+    
     
     @api.constrains('dni')
     def _check_dni(self):
@@ -19,10 +25,7 @@ class persona(models.Model):
             if len(record.dni) != 9 or not record.dni.isdigit():
                 raise models.ValidationError("El DNI debe tener 9 dígitos")
             
-    sql_constraints = [
-        ('dni_uniq', 'UNIQUE(dni)', 'El DNI debe ser único'),
-    ]
-    
+   
     
     @api.constrains('name','apellidos')
     def _check_name(self):
@@ -30,7 +33,7 @@ class persona(models.Model):
             if len(record.name) < 1 or len(record.apellidos) < 1:
                 raise models.ValidationError("El nombre y los apellidos deben tener al menos 1 caracter")
             
-    @api.constraints('email')  
+    @api.constrains('email')  
     def _check_email(self):
         for record in self:
             if record.email and not '@' in record.email: #xra q valide el @ sólo si está lleno el campo

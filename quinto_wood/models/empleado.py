@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 
-class empleado(models.Model):
+class Empleado(models.Model):
     _name = 'quinto_wood.empleado' # modulo.modelo
     _inherit = 'quinto_wood.persona' # hay q hacerlo por prototipo
     _description = 'Un empleado'

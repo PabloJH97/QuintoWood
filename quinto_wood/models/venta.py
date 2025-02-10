@@ -21,7 +21,8 @@ class Venta(models.Model):
     @api.model
     def create(self, vals):
         record = super(Venta, self).create(vals)
-        record.idVenta = f"ID-{record.id}"  # Asignar un valor basado en el id
+        
+        record.idVenta=record.id
 
         return record
 
